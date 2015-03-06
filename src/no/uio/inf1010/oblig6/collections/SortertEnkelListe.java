@@ -4,18 +4,27 @@ import no.uio.inf1010.oblig6.Lik;
 
 import java.util.Iterator;
 
-
+/**
+ * source: http://www.java2s.com/Code/Java/Collections-Data-Structure/SimplelinkedlistclasswhichusesaComparatortosortthenodes.htm
+ * @param <E>
+ */
 public class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSortertEnkelListe<E> {
 
-    private Node first;
+    private Node head;
+    private Node tail;
+    private int length;
 
     private class Node {
-        protected E data;
-
-        private Node next;
+        E data;
+        Node next;
 
         public Node(E data) {
             this.data = data;
+        }
+
+        public Node(E data, Node next) {
+            this.data = data;
+            this.next = next;
         }
     }
 
@@ -48,79 +57,83 @@ public class SortertEnkelListe<E extends Comparable<E> & Lik> implements Abstrak
 
         @Override
         public void remove() {
-            previous.next = next;
-            current = previous;
+            throw new UnsupportedOperationException();
         }
     }
 
     @Override
-    public Iterator<E> iterator() {
-        return new SELIterator(first);
-    }
+    public boolean push(E e) {
+        Node newnode = new Node(e);
 
-    @Override
-    public boolean push(E element) {
-        Node node = new Node(element);
-
-
-        if (first == null) {
-            first = node;
+        if (head == null) {
+            // empty list
+            head = newnode;
+            tail = newnode;
         } else {
-            Node current = first;
+            if (e.compareTo(head.data) <= 0) {
+                // Check if it needs to go right at the head
+                newnode.next = head;
+                head = newnode;
+            } else if (e.compareTo(tail.data) >= 0) {
+                // Check if it needs to go right at the tail
+                tail.next = newnode;
+                tail = newnode;
+            } else {
+                // It needs to be inserted into the middle of the list
+                Node next = head.next;
+                Node prev = head;
 
-            while (current.next != null) {
-                current = current.next;
+                while (e.compareTo(next.data) > 0) {
+                    prev = next;
+                    next = next.next;
+                }
+
+                // Do the actual insertion
+                prev.next = newnode;
+                newnode.next = next;
             }
-
-            current.next = node;
         }
 
-        sort();
-
+        length++;
         return true;
     }
 
     @Override
     public E get(String s) {
-        // TODO Auto-generated method stub
         return null;
     }
 
-    protected void sort() {
-        if (first != null && first.next != null) {
-            Node newHead = first;
-            Node pointer = first.next;
+    @Override
+    public Iterator<E> iterator() {
+        return new SELIterator(head);
+    }
 
-            while (pointer != null) {
-                Node innerPointer = newHead;
-                Node next = pointer.next;
+    private void remove(E e) {
+        Node next = head;
+        Node prev = null;
 
-                System.out.println(pointer.data.compareTo(newHead.data));
-                if (pointer.data.compareTo(newHead.data) >= 0) {
-                    Node oldHead = newHead;
-                    newHead = pointer;
-                    newHead.next = oldHead;
+        while (next != null) {
+            if (next.data == e) {
+                // Need to remove this node
+                length--;
+                if (prev != null) {
+                    // It's not the head
+                    prev.next = next.next;
                 } else {
-                    while (innerPointer.next != null) {
-                        if (pointer.data.compareTo(innerPointer.data) < 0 && pointer.data.compareTo(innerPointer.next.data) >= 0) {
-                            Node oldNext = innerPointer.next;
-                            innerPointer.next = pointer;
-                            pointer.next = oldNext;
-                        }
-
-                        innerPointer = innerPointer.next;
-                    }
-
-                    if (pointer.data.compareTo(innerPointer.data) < 0) {
-                        innerPointer.next = pointer;
-                        pointer.next = null;
-                    }
+                    // It was the head
+                    head = next.next;
                 }
-
-                pointer = next;
+                // Check if it's the tail
+                if (next == tail) {
+                    tail = prev;
+                }
             }
-
-            first = newHead;
+            prev = next;
+            next = next.next;
         }
+    }
+
+    public int size() {
+        return length;
     }
 }

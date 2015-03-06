@@ -20,7 +20,7 @@ public class Lege implements Lik, Comparable<Lege> {
 
     @Override
     public int compareTo(Lege o) {
-        return navn.compareTo(o.navn);
+        return navn.compareToIgnoreCase(o.navn);
     }
 
     @Override

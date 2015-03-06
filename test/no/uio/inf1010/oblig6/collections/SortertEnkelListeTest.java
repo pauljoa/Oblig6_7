@@ -16,42 +16,39 @@ public class SortertEnkelListeTest {
     private Lege steffen = new Lege("Steffen");
     private Lege mikael = new Lege("mikael");
     private Lege nikolai = new Lege("nikolai");
+    private Lege anette = new Lege("anette");
+    private Lege henrik = new Lege("henrik");
 
     @Before
     public void setUp() throws Exception {
         liste = new SortertEnkelListe<>();
         liste.push(paul);
         liste.push(steffen);
-//        liste.push(mikael);
-//        liste.push(nikolai);
+        liste.push(mikael);
+        liste.push(nikolai);
+        liste.push(anette);
     }
 
     @Test
     public void testIterator() throws Exception {
-        for (Lege lege : liste) {
-            System.out.println(".......");
-            System.out.println(lege);
-        }
-
         Iterator<Lege> iterator = liste.iterator();
 
+        assertSame(anette, iterator.next());
+        assertSame(mikael, iterator.next());
+        assertSame(nikolai, iterator.next());
         assertSame(paul, iterator.next());
         assertSame(steffen, iterator.next());
-
     }
 
     @Test
     public void testPush() throws Exception {
-
+        assertEquals(5, liste.size());
+        liste.push(henrik);
+        assertEquals(6, liste.size());
     }
 
     @Test
     public void testGet() throws Exception {
-
-    }
-
-    @Test
-    public void testSort() throws Exception {
 
     }
 }
