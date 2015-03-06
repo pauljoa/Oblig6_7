@@ -2,19 +2,31 @@ package no.uio.inf1010.oblig6.lege;
 
 import no.uio.inf1010.oblig6.Lik;
 
-public class Lege implements Lik {
-	protected String navn;
+public class Lege implements Lik, Comparable<Lege> {
+    protected String navn;
 
     public Lege(String navn) {
         this.navn = navn;
     }
 
     @Override
-	public boolean samme(String s) {
+    public boolean samme(String s) {
         return navn.equalsIgnoreCase(s);
-	}
-	
-	public String navn() {
-		return navn;
-	}
+    }
+
+    public String navn() {
+        return navn;
+    }
+
+    @Override
+    public int compareTo(Lege o) {
+        return navn.compareTo(o.navn);
+    }
+
+    @Override
+    public String toString() {
+        return "Lege{" +
+                "navn='" + navn + '\'' +
+                '}';
+    }
 }
