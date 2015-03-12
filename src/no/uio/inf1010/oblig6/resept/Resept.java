@@ -4,9 +4,9 @@ import no.uio.inf1010.oblig6.lege.Lege;
 import no.uio.inf1010.oblig6.legemiddel.Legemiddel;
 
 public class Resept {
-    static int nr = 0;
+    private static int unikTeller = 0;
 
-    protected int unik;
+    protected int unikNr;
     protected Legemiddel legemiddel;
     protected Lege lege;
     protected int reit;
@@ -18,12 +18,12 @@ public class Resept {
         this.lege = lege;
         this.legemiddel = legemiddel;
 
-        unik = nr;
-        nr++;
+        unikNr = unikTeller;
+        unikTeller++;
     }
 
     public int getNr() {
-        return unik;
+        return unikNr;
     }
 
     public Legemiddel getLegemiddel() {
@@ -42,4 +42,14 @@ public class Resept {
         return personnr;
     }
 
+    @Override
+    public String toString() {
+        return "Resept{" +
+                "unikNr=" + unikNr +
+                ", legemiddel=" + legemiddel +
+                ", lege=" + lege +
+                ", reit=" + reit +
+                ", personnr=" + personnr +
+                '}';
+    }
 }

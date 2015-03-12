@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 /**
  * source: http://www.java2s.com/Code/Java/Collections-Data-Structure/SimplelinkedlistclasswhichusesaComparatortosortthenodes.htm
+ *
  * @param <E>
  */
 public class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSortertEnkelListe<E> {
@@ -13,11 +14,11 @@ public class SortertEnkelListe<E extends Comparable<E> & Lik> implements Abstrak
     private Node<E> head;
     private Node<E> tail;
     private int length;
-    
+
 
     @Override
     public boolean push(E e) {
-        Node<E> newnode = new Node<E>(e);
+        Node<E> newnode = new Node<>(e);
 
         if (head == null) {
             // empty list
@@ -59,7 +60,7 @@ public class SortertEnkelListe<E extends Comparable<E> & Lik> implements Abstrak
 
     @Override
     public Iterator<E> iterator() {
-        return new Riterator<E>(head);
+        return new Riterator<>(head);
     }
 
     private void remove(E e) {

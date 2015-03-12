@@ -33,4 +33,13 @@ public abstract class Legemiddel {
         return unik;
     }
 
+    @Override
+    public String toString() {
+        return "Legemiddel{" +
+                "navn='" + navn + '\'' +
+                ", virkestoff=" + virkestoff +
+                ", pris=" + pris +
+                ", unik=" + unik +
+                '}';
+    }
 }

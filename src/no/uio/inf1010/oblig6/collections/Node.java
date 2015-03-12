@@ -1,7 +1,7 @@
 package no.uio.inf1010.oblig6.collections;
 
-public class Node<E> {
-	E data;
+class Node<E> {
+    E data;
     Node<E> next;
 
     public Node(E data) {

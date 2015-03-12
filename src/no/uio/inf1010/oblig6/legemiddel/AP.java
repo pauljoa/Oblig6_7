@@ -27,4 +27,13 @@ public class AP extends Legemiddel implements Piller {
     public int nark() {
         return narkotisk;
     }
+
+    @Override
+    public String toString() {
+        return "AP{" +
+                "narkotisk=" + narkotisk +
+                ", mengde=" + mengde +
+                ", perEnhet=" + perEnhet +
+                '}';
+    }
 }

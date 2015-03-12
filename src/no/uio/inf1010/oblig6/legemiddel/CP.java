@@ -22,4 +22,11 @@ public class CP extends Legemiddel implements Piller {
         return this.perEnhet;
     }
 
+    @Override
+    public String toString() {
+        return "CP{" +
+                "mengde=" + mengde +
+                ", perEnhet=" + perEnhet +
+                '}';
+    }
 }

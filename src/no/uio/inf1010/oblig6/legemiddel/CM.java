@@ -22,4 +22,11 @@ public class CM extends Legemiddel implements Mikstur {
         return perCm3;
     }
 
+    @Override
+    public String toString() {
+        return "CM{" +
+                "volum=" + volum +
+                ", perCm3=" + perCm3 +
+                '}';
+    }
 }

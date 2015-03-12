@@ -27,4 +27,12 @@ public class BM extends Legemiddel implements Mikstur {
         return vane;
     }
 
+    @Override
+    public String toString() {
+        return "BM{" +
+                "vane=" + vane +
+                ", volum=" + volum +
+                ", perCm3=" + perCm3 +
+                '}';
+    }
 }
