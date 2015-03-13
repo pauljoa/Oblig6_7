@@ -1,8 +1,8 @@
 package no.uio.inf1010.oblig6.collections;
 
 class Node<E> {
-    E data;
-    Node<E> next;
+    protected E data;
+    protected Node<E> next;
 
     public Node(E data) {
         this.data = data;
