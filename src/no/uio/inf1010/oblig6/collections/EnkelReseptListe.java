@@ -1,6 +1,7 @@
 package no.uio.inf1010.oblig6.collections;
 
 import no.uio.inf1010.oblig6.resept.Resept;
+import no.uio.inf1010.oblig6.resept.ReseptNotFoundException;
 
 import java.util.Iterator;
 
@@ -23,7 +24,7 @@ public abstract class EnkelReseptListe implements Iterable<Resept> {
             }
         }
 
-        return null;
+        throw new ReseptNotFoundException(reseptNr);
     }
 
     @Override

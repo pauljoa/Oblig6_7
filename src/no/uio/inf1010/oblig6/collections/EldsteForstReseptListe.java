@@ -11,8 +11,8 @@ public class EldsteForstReseptListe extends EnkelReseptListe {
             head = node;
             tail = node;
         } else {
-            tail.next = node;
-            tail = node;
+            node.next = head;
+            head = node;
         }
 
         length++;
