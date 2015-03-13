@@ -65,7 +65,7 @@ public class YngsteForstReseptListeTest {
     @Test
     public void testIterator() throws Exception {
         Iterator<Resept> iterator = liste.iterator();
-        
+
         assertEquals(resept1, iterator.next());
         assertEquals(resept2, iterator.next());
         assertEquals(resept3, iterator.next());

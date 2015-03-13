@@ -55,6 +55,12 @@ public class SortertEnkelListe<E extends Comparable<E> & Lik> implements Abstrak
 
     @Override
     public E get(String s) {
+        for (E e : this) {
+            if (e.samme(s)) {
+                return e;
+            }
+        }
+
         return null;
     }
 

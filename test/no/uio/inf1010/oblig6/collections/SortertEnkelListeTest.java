@@ -49,6 +49,11 @@ public class SortertEnkelListeTest {
 
     @Test
     public void testGet() throws Exception {
+        assertEquals(paul, liste.get("paul"));
+        assertEquals(steffen, liste.get("steffen"));
 
+        assertNotEquals(paul, liste.get("steffen"));
+
+        assertNull(liste.get("jegerikkeher"));
     }
 }
