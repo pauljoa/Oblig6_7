@@ -10,10 +10,10 @@ public class Person {
     private String adresse;
     private int postnr;
 
-    Person(String navn, int persNr, String adr, int vnr, int postnr) {
+    public Person(String navn, int persNr, String adr, int postnr) {
         this.navn = navn;
         this.persNr = persNr;
-        this.adresse = adr + " " + vnr;
+        this.adresse = adr;
         this.postnr = postnr;
 
         unik = nr;
