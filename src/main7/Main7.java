@@ -16,7 +16,7 @@ public class Main7 {
 		
 		Scanner in = new Scanner(System.in);
 		String input = "start";
-		while (!input.equalsIgnoreCase("exit")) {
+		while (!input.equalsIgnoreCase("e")) {
 			meny();
 			input=in.nextLine();
 		}

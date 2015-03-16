@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>498</y>
+      <w>126</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+EldsteForstReseptListe
+--
+get(int reseptNr) : Resept
+push(Resept r) : boolean
+--
+
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>912</x>
+      <y>546</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+Tabell&lt;E&gt;
+--
+put(int index, E element) :boolean
+get(int index) : E
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>252</y>
+      <w>126</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+Tabell&lt;E&gt;
+--
+put(int index, E element) :boolean
+get(int index) : E
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>294</y>
+      <w>156</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+SortertEnkelListe&lt;E&gt;
+--
+push(E element) : boolean
+get(String s) : E
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>318</x>
+      <y>504</y>
+      <w>126</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+YngsteForstReseptListe
+--
+get(int reseptNr) : Resept
+push(Resept r) : boolean
+--
+
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>480</y>
+      <w>126</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Container&gt;&gt;
+EnkelReseptListe
+--
+get(int reseptNr) : Resept
+push(Resept r) : boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>594</y>
+      <w>270</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Resept
+--
+int unikTeller = 1
+int unikNr = 1
+Legemiddel legemiddel= Duracell 
+Lege lege = Dyregod
+int reit = 10
+int personnr = 22345678910</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>594</y>
+      <w>264</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Resept
+--
+int unikTeller = 1
+int unikNr = 0
+Legemiddel legemiddel= Solidox
+Lege lege = Hansen
+int reit = 10
+int personnr = 12345678910
+--
++Resept(int personnr, int reit, Lege lege, Legemiddel legemiddel): ctor
++getNr(): int
++getLegemiddel(): Legemiddel
++getLege(): Lege
++getReit(): int
++getPersonnr(): int
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>372</y>
+      <w>132</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Lege
+--
+String navn = Dyregod
+--
++Lege(String navn): ctor
++samme(String s): boolean
++navn(): String
++compareTo(Lege o): int
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>138</x>
+      <y>372</y>
+      <w>132</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Fastlege
+--
+String navn = Hansen
+int avtalenr =1234
+--
++avnr() : int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>294</x>
+      <y>330</y>
+      <w>228</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Person
+--
+int nr = 1
+int unik = 0
+String navn = per
+int persNr = 12345678910
+String adresse = fantasiveien 2
+int postnr = 1000
+--
++Person(String navn, int persNr, String adr, int postnr): ctor
++getNr(): int
++getUnik(): int
++getNavn(): String
++getPersNr(): int
++getAdresse(): String
++getPostnr(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>330</y>
+      <w>144</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+Person
+--
+int nr = 1
+int unik = 0
+String navn = per
+int persNr = 22345678910
+String adresse = fantasiveien 2
+int postnr = 1000
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>468</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>540</y>
+      <w>54</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>522</y>
+      <w>54</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>534</y>
+      <w>138</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>546</y>
+      <w>78</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>282</x>
+      <y>522</y>
+      <w>24</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>546</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>336</y>
+      <w>54</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>336</y>
+      <w>54</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>456</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>456</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>468</y>
+      <w>114</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>294</y>
+      <w>54</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>294</y>
+      <w>54</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>504</y>
+      <w>288</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+AM
+--
+String navn = Duracell
+double volum = 100
+double perCm3 = 20
+int narkotisk = 10
+double virkestoff = 2000
+int pris = 2000
+int unik = 0
+--
++AM(String navn, double virkestoff, int pris, double volum, int narkotisk): ctor
++volum(): double
++perCm3(): double
++nark(): int
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>648</y>
+      <w>288</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+AP
+--
+String navn = Solidox
+int narkotisk = 10
+double virkestoff = 2000
+int pris = 1000
+int unik = 1
+int mengde 100
+double perEnhet = 20
+--
++mengde(): int
++perEnhet(): double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>846</x>
+      <y>546</y>
+      <w>78</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>846</x>
+      <y>612</y>
+      <w>78</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;contains&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>258</x>
+      <y>726</y>
+      <w>318</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>570</y>
+      <w>72</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;40.0;100.0;10.0</additional_attributes>
+  </element>
+</diagram>
