@@ -12,7 +12,11 @@ public class Main7 {
 	public Main7(File file) {
 		if (file.exists()) {
 			FileParser parser = new FileParser(file, table);
-			parser.parse();
+			try {
+				parser.parse();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		} else {
 			meny();
 		}

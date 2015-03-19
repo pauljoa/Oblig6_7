@@ -5,15 +5,24 @@ public class AM extends Legemiddel implements Mikstur {
     protected double perCm3;
     protected int narkotisk;
 
-    public AM(String navn, double virkestoff, int pris, double volum, int narkotisk) {
-        super(navn, virkestoff, pris);
+	public AM(String navn, int pris, double volum, double virkestoff, int styrke) {
+        super(navn, pris, virkestoff);
         this.volum = volum;
-        this.narkotisk = narkotisk;
+        this.narkotisk = styrke;
 
         perCm3 = virkestoff / volum;
     }
 
-    @Override
+	public AM(int nr, String navn, int pris, double volum, double virkestoff, int styrke) {
+		super(nr, navn, pris, virkestoff);
+		this.volum = volum;
+		this.narkotisk = styrke;
+
+		perCm3 = virkestoff / volum;
+	}
+
+
+	@Override
     public double volum() {
         return volum;
     }
@@ -32,7 +41,7 @@ public class AM extends Legemiddel implements Mikstur {
         return "AM{" +
                 "volum=" + volum +
                 ", perCm3=" + perCm3 +
-                ", narkotisk=" + narkotisk +
+                ", styrke=" + narkotisk +
                 '}';
     }
 }

@@ -5,8 +5,15 @@ public class CP extends Legemiddel implements Piller {
     protected int mengde;
     protected double perEnhet;
 
-    public CP(String navn, double virkestoff, int pris, int mengde) {
-        super(navn, virkestoff, pris);
+	public CP(String navn, int pris, int mengde, double virkestoff) {
+		super(navn, pris, virkestoff);
+		this.mengde = mengde;
+
+		perEnhet = virkestoff / mengde;
+	}
+
+	public CP(int nr, String navn, int pris, int mengde, double virkestoff) {
+        super(nr, navn, pris, virkestoff);
         this.mengde = mengde;
 
         perEnhet = virkestoff / mengde;
@@ -25,7 +32,7 @@ public class CP extends Legemiddel implements Piller {
     @Override
     public String toString() {
         return "CP{" +
-                "mengde=" + mengde +
+                "volum=" + mengde +
                 ", perEnhet=" + perEnhet +
                 '}';
     }

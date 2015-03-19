@@ -5,12 +5,12 @@ public class Person {
 
     private int unik;
     private String navn;
-    private int fodselsnr;
+    private String fodselsnr;
 
     private String adresse;
-    private int postnr;
+    private String postnr;
 
-    public Person(String navn, int fodselsnr, String adr, int postnr) {
+    public Person(String navn, String fodselsnr, String adr, String postnr) {
         this.navn = navn;
         this.fodselsnr = fodselsnr;
         this.adresse = adr;
@@ -20,7 +20,7 @@ public class Person {
         teller++;
     }
 
-	public Person(int unikid, String navn, int fodselsnr, String adr, int postnr) {
+	public Person(int unikid, String navn, String fodselsnr, String adr, String postnr) {
 		this.navn = navn;
 		this.fodselsnr = fodselsnr;
 		this.adresse = adr;
@@ -39,11 +39,16 @@ public class Person {
         return unik;
     }
 
-    public String getNavn() {
+	public static void resetTeller() {
+		teller = 0;
+	}
+
+
+	public String getNavn() {
         return navn;
     }
 
-    public int getFodselsnr() {
+    public String getFodselsnr() {
         return fodselsnr;
     }
 
@@ -51,7 +56,7 @@ public class Person {
         return adresse;
     }
 
-    public int getPostnr() {
+    public String getPostnr() {
         return postnr;
     }
 }

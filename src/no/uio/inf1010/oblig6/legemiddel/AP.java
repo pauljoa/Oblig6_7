@@ -1,18 +1,25 @@
 package no.uio.inf1010.oblig6.legemiddel;
 
 public class AP extends Legemiddel implements Piller {
-    protected int narkotisk;
+    protected int styrke;
     protected int mengde;
     protected double perEnhet;
 
-
-    public AP(String navn, double virkestoff, int pris, int narkotisk, int mengde) {
-        super(navn, virkestoff, pris);
-        this.narkotisk = narkotisk;
+    public AP(String navn, int pris, int mengde, double virkestoff, int styrke) {
+        super(navn, pris, virkestoff);
+        this.styrke = styrke;
         this.mengde = mengde;
 
-        perEnhet = virkestoff / mengde;
+        perEnhet = virkestoff / this.mengde;
     }
+
+	public AP(int nr, String navn, int pris, int mengde, double virkestoff, int styrke) {
+		super(nr, navn, pris, virkestoff);
+		this.styrke = styrke;
+		this.mengde = mengde;
+
+		perEnhet = virkestoff / this.mengde;
+	}
 
     @Override
     public int mengde() {
@@ -25,14 +32,14 @@ public class AP extends Legemiddel implements Piller {
     }
 
     public int nark() {
-        return narkotisk;
+        return styrke;
     }
 
     @Override
     public String toString() {
         return "AP{" +
-                "narkotisk=" + narkotisk +
-                ", mengde=" + mengde +
+                "styrke=" + styrke +
+                ", antall=" + mengde +
                 ", perEnhet=" + perEnhet +
                 '}';
     }

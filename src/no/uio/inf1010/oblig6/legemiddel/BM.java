@@ -5,13 +5,21 @@ public class BM extends Legemiddel implements Mikstur {
     protected double volum;
     protected double perCm3;
 
-    public BM(String navn, double virkestoff, int pris, int vane, double volum) {
-        super(navn, virkestoff, pris);
+	public BM(String navn, int pris, double volum, double virkestoff, int vane) {
+        super(navn, pris, virkestoff);
         this.vane = vane;
         this.volum = volum;
 
         perCm3 = virkestoff / volum;
     }
+
+	public BM(int nr, String navn, int pris, double volum, double virkestoff, int vane) {
+		super(nr, navn, pris, virkestoff);
+		this.vane = vane;
+		this.volum = volum;
+
+		perCm3 = virkestoff / volum;
+	}
 
     @Override
     public double volum() {

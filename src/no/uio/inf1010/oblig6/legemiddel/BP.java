@@ -2,20 +2,28 @@ package no.uio.inf1010.oblig6.legemiddel;
 
 public class BP extends Legemiddel implements Piller {
     protected int vane;
-    protected int mengde;
+    protected int antall;
     protected double perEnhet;
 
-    public BP(String navn, double virkestoff, int pris, int vane, int mengde) {
-        super(navn, virkestoff, pris);
-        this.vane = vane;
-        this.mengde = mengde;
+	public BP(String navn, int pris, int antall, double virkestoff, int vane) {
+        super(navn, pris, virkestoff);
+		this.antall = antall;
+		this.vane = vane;
 
-        perEnhet = virkestoff / mengde;
+        perEnhet = virkestoff / this.antall;
     }
+
+	public BP(int nr, String navn, int pris, int antall, double virkestoff, int vane) {
+		super(nr, navn, pris, virkestoff);
+		this.antall = antall;
+		this.vane = vane;
+
+		perEnhet = virkestoff / this.antall;
+	}
 
     @Override
     public int mengde() {
-        return mengde;
+        return antall;
     }
 
     @Override
@@ -31,7 +39,7 @@ public class BP extends Legemiddel implements Piller {
     public String toString() {
         return "BP{" +
                 "vane=" + vane +
-                ", mengde=" + mengde +
+                ", volum=" + antall +
                 ", perEnhet=" + perEnhet +
                 '}';
     }

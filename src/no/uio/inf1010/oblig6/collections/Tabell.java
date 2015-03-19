@@ -18,14 +18,26 @@ public class Tabell<E> implements AbstraktTabell<E> {
 
     @Override
     public boolean put(int index, E element) {
+		ensureSize(index + 1);
         tabell.add(index, element);
         return true;
     }
+
+	private void ensureSize(int size) {
+		tabell.ensureCapacity(size);
+		while (tabell.size() < size) {
+			tabell.add(null);
+		}
+	}
 
     @Override
     public E get(int index) {
         return tabell.get(index);
     }
+
+	public void clear() {
+		tabell.clear();
+	}
 
     private class TabellIterator implements Iterator<E> {
         private int index;

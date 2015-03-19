@@ -22,7 +22,7 @@ public class FileParser {
 		this.table = table;
 
 		modeParser = new ModeParser();
-		personParser = new PersonParser();
+		personParser = new PersonParser(table.personTabell);
 		legemiddelParser = new LegemiddelParser();
 		mode = null;
 	}
@@ -44,7 +44,7 @@ public class FileParser {
 				if (mode == null) {
 					throw new IllegalStateException("Feil under parsing av fil, ingen 'mode' satt");
 				} else if (mode == Modes.PERSONER) {
-					personParser.parse(line, table.personTabell);
+					personParser.parse(line);
 				} else if (mode == Modes.LEGEMIDLER) {
 					legemiddelParser.parse(line, table.legemiddelTabell);
 				} else if (mode == Modes.LEGER) {
