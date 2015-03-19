@@ -1,27 +1,38 @@
 package no.uio.inf1010.oblig6;
 
 public class Person {
-    private static int nr;
+    private static int teller;
 
     private int unik;
     private String navn;
-    private int persNr;
+    private int fodselsnr;
 
     private String adresse;
     private int postnr;
 
-    public Person(String navn, int persNr, String adr, int postnr) {
+    public Person(String navn, int fodselsnr, String adr, int postnr) {
         this.navn = navn;
-        this.persNr = persNr;
+        this.fodselsnr = fodselsnr;
         this.adresse = adr;
         this.postnr = postnr;
 
-        unik = nr;
-        nr++;
+        unik = teller;
+        teller++;
     }
 
-    public static int getNr() {
-        return nr;
+	public Person(int unikid, String navn, int fodselsnr, String adr, int postnr) {
+		this.navn = navn;
+		this.fodselsnr = fodselsnr;
+		this.adresse = adr;
+		this.postnr = postnr;
+
+		teller = unikid;
+		unik = teller;
+		teller++;
+	}
+
+    public static int getTeller() {
+        return teller;
     }
 
     public int getUnik() {
@@ -32,8 +43,8 @@ public class Person {
         return navn;
     }
 
-    public int getPersNr() {
-        return persNr;
+    public int getFodselsnr() {
+        return fodselsnr;
     }
 
     public String getAdresse() {
