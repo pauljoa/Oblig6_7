@@ -29,10 +29,6 @@ public class AP extends Legemiddel implements Piller {
 
     @Override
     public String toString() {
-        return "AP{" +
-                "styrke=" + styrke +
-                ", antall=" + mengde +
-                ", perEnhet=" + perEnhet +
-                '}';
-    }
+		return String.format("%d, %s, %s, %s, %d, %d, %f, %d", unik, navn, Piller.DESCRPTION, "a", pris, mengde, virkestoff, styrke);
+	}
 }

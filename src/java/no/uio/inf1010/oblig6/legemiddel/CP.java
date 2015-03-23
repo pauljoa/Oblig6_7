@@ -24,9 +24,6 @@ public class CP extends Legemiddel implements Piller {
 
     @Override
     public String toString() {
-        return "CP{" +
-                "volum=" + mengde +
-                ", perEnhet=" + perEnhet +
-                '}';
+		return String.format("%d, %s, %s, %s, %d, %d, %f", unik, navn, Piller.DESCRPTION, "c", pris, mengde, virkestoff);
     }
 }

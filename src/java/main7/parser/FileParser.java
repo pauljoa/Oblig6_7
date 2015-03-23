@@ -48,7 +48,6 @@ public class FileParser {
 
 		while (scanner.hasNext()) {
 			String line = scanner.nextLine();
-			System.out.println(line);
 
 			if (line.startsWith("#")) {
 				Modes mode = modeParser.parse(line);
@@ -70,7 +69,5 @@ public class FileParser {
 				}
 			}
 		}
-
-		System.out.println("lol");
 	}
 }

@@ -30,10 +30,6 @@ public class AM extends Legemiddel implements Mikstur {
 
 	@Override
 	public String toString() {
-		return "AM{" +
-			"volum=" + volum +
-			", perCm3=" + perCm3 +
-			", narkotisk=" + narkotisk +
-			"} " + super.toString();
+		return String.format("%d, %s, %s, %s, %d, %f, %f, %d", unik, navn, Mikstur.DESCRPTION, "a", pris, volum, virkestoff, narkotisk);
 	}
 }

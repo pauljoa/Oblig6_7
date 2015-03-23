@@ -13,8 +13,13 @@ public class ReseptBlaa extends Resept {
 		super(nr, personnr, reit, lege, legemiddel);
 	}
 
-    @Override
+	@Override
+	public int getPris() {
+		return 0;
+	}
+
+	@Override
     public String toString() {
-        return "ReseptBlaa{} " + super.toString();
-    }
+		return String.format("%d, %s, %d, %s, %d, %d", unikNr, "blå", personnr, lege.navn(), legemiddel.getNr(), reit);
+	}
 }

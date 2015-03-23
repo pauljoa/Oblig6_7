@@ -12,4 +12,9 @@ public class Fastlege extends Lege implements Avtale {
     public int avnr() {
         return avtalenr;
     }
+
+	@Override
+	public String toString() {
+		return String.format("%s, %d", navn, avtalenr);
+	}
 }

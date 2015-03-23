@@ -1,6 +1,7 @@
 package no.uio.inf1010.oblig6.lege;
 
 import no.uio.inf1010.oblig6.Lik;
+import no.uio.inf1010.oblig6.legemiddel.Mikstur;
 
 public class Lege implements Lik, Comparable<Lege> {
     protected String navn;
@@ -25,8 +26,6 @@ public class Lege implements Lik, Comparable<Lege> {
 
     @Override
     public String toString() {
-        return "Lege{" +
-                "navn='" + navn + '\'' +
-                '}';
+		return String.format("%s, %d", navn, 0);
     }
 }

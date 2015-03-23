@@ -24,9 +24,6 @@ public class CM extends Legemiddel implements Mikstur {
 
     @Override
     public String toString() {
-        return "CM{" +
-                "volum=" + volum +
-                ", perCm3=" + perCm3 +
-                '}';
-    }
+		return String.format("%d, %s, %s, %s, %d, %f, %f", unik, navn, Mikstur.DESCRPTION, "c", pris, volum, virkestoff);
+	}
 }

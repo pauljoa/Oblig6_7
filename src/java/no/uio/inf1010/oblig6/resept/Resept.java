@@ -55,14 +55,12 @@ public class Resept {
         return personnr;
     }
 
+	public int getPris() {
+		return legemiddel.getPris();
+	}
+
     @Override
     public String toString() {
-        return "Resept{" +
-                "unikNr=" + unikNr +
-                ", legemiddel=" + legemiddel +
-                ", lege=" + lege +
-                ", reit=" + reit +
-                ", personnr=" + personnr +
-                '}';
-    }
+		return String.format("%d, %s, %d, %s, %d, %d", unikNr, "hvit", personnr, lege.navn(), legemiddel.getNr(), reit);
+	}
 }

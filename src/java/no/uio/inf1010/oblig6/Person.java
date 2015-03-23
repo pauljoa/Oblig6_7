@@ -59,4 +59,9 @@ public class Person {
     public String getPostnr() {
         return postnr;
     }
+
+	@Override
+	public String toString() {
+		return String.format("%d, %s, %s, %s, %s", unik, navn, fodselsnr, adresse, postnr);
+	}
 }
