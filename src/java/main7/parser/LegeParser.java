@@ -34,6 +34,7 @@ public class LegeParser {
 				lege = new Fastlege(navn, avtalenr);
 			}
 
+			liste.push(lege);
 			return lege;
 		}
 

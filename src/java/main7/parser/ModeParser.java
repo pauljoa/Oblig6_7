@@ -32,9 +32,10 @@ public class ModeParser {
 
 	public Modes parse(String line) {
 		Matcher matcher = pattern.matcher(line);
+		matcher.find();
 
 		for (Modes mode : Modes.values()) {
-			if (!matcher.group(mode.get()).isEmpty()) {
+			if (matcher.group(mode.get()) != null) {
 				return mode;
 			}
 		}

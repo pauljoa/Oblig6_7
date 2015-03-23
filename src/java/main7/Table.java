@@ -8,7 +8,6 @@ import no.uio.inf1010.oblig6.legemiddel.Legemiddel;
 public class Table {
 	public EldsteForstReseptListe eldsteForstReseptListe;
 	public YngsteForstReseptListe yngsteForstReseptListe;
-	public EnkelReseptListe enkelReseptListe;
 	public SortertEnkelListe<Lege> sortertLegeListe;
 	public Tabell<Person> personTabell;
 	public Tabell<Legemiddel> legemiddelTabell;
@@ -16,7 +15,6 @@ public class Table {
 	public Table() {
 		eldsteForstReseptListe = new EldsteForstReseptListe();
 		yngsteForstReseptListe = new YngsteForstReseptListe();
-		enkelReseptListe = new EldsteForstReseptListe();
 		sortertLegeListe = new SortertEnkelListe<>();
 		personTabell = new Tabell<>(10);
 		legemiddelTabell = new Tabell<>(10);

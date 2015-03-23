@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Main7 {
 	private Table table = new Table();
 
-	public Main7(File file) {
+	public Main7(File file) throws FileNotFoundException {
 		if (file.exists()) {
 			FileParser parser = new FileParser(file, table);
 			try {
@@ -25,7 +25,7 @@ public class Main7 {
 	private void meny() {
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File(args[0]);
 		new Main7(file);
 	}

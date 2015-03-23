@@ -7,7 +7,7 @@ public enum Modes {
 	LEGEMIDLER("Legemidler"),
 	LEGER("Leger"),
 	RESEPTER("Resepter"),
-	SLUTT("slutt");
+	SLUTT("Slutt");
 
 	private String text;
 

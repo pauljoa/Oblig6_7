@@ -2,13 +2,12 @@ package main7.parser;
 
 import main7.Table;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class FileParser {
 
-	private final File file;
+	private final InputStream stream;
 	private final Table table;
 
 	private ModeParser modeParser;
@@ -19,8 +18,20 @@ public class FileParser {
 
 	private Modes mode;
 
-	public FileParser(File file, Table table) {
-		this.file = file;
+	public FileParser(File file, Table table) throws FileNotFoundException {
+		this.stream = new FileInputStream(file);
+		this.table = table;
+
+		modeParser = new ModeParser();
+		personParser = new PersonParser(table.personTabell);
+		legemiddelParser = new LegemiddelParser(table.legemiddelTabell);
+		legeParser = new LegeParser(table.sortertLegeListe);
+		reseptParser = new ReseptParser(table.yngsteForstReseptListe, table.eldsteForstReseptListe, table.sortertLegeListe, table.legemiddelTabell);
+		mode = null;
+	}
+
+	public FileParser(InputStream stream, Table table) {
+		this.stream = stream;
 		this.table = table;
 
 		modeParser = new ModeParser();
@@ -33,10 +44,11 @@ public class FileParser {
 
 
 	public void parse() throws FileNotFoundException {
-		Scanner scanner = new Scanner(file);
+		Scanner scanner = new Scanner(stream);
 
 		while (scanner.hasNext()) {
 			String line = scanner.nextLine();
+			System.out.println(line);
 
 			if (line.startsWith("#")) {
 				Modes mode = modeParser.parse(line);
@@ -58,5 +70,7 @@ public class FileParser {
 				}
 			}
 		}
+
+		System.out.println("lol");
 	}
 }

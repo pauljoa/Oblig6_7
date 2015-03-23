@@ -109,6 +109,6 @@ public class LegemiddelParser {
 			}
 		}
 
-		throw new IllegalStateException("feil med inlest linje:\n" + line);
+		return null;
 	}
 }

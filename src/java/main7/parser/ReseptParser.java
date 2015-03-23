@@ -54,21 +54,34 @@ public class ReseptParser {
 			if (lege != null && legemiddel != null) {
 				if (nr != -1) {
 					if (type.equals("hvit")) {
-						return new Resept(nr, persNummer, reit, lege, legemiddel);
+						Resept resept = new Resept(nr, persNummer, reit, lege, legemiddel);
+						addToLists(resept);
+						return resept;
 					} else if (type.equals("blå")) {
-						return new ReseptBlaa(nr, persNummer, reit, lege, legemiddel);
+						Resept resept = new ReseptBlaa(nr, persNummer, reit, lege, legemiddel);
+						addToLists(resept);
+						return resept;
 					}
 				} else {
 					if (type.equals("hvit")) {
-						return new Resept(persNummer, reit, lege, legemiddel);
+						Resept resept = new Resept(persNummer, reit, lege, legemiddel);
+						addToLists(resept);
+						return resept;
 					} else if (type.equals("blå")) {
-						return new ReseptBlaa(persNummer, reit, lege, legemiddel);
+						Resept resept = new ReseptBlaa(persNummer, reit, lege, legemiddel);
+						addToLists(resept);
+						return resept;
 					}
 				}
 			}
 		}
 
 		return null;
+	}
+
+	private void addToLists(Resept resept) {
+		yngsteForstReseptListe.push(resept);
+		eldsteForstReseptListe.push(resept);
 	}
 
 	private Lege matchLege(String legenavn) {
@@ -82,6 +95,8 @@ public class ReseptParser {
 	}
 
 	private Legemiddel matchLegemiddel(int legemiddelNummer) {
+		int count = 0;
+
 		for (Legemiddel lm : legemiddelTabell) {
 			if (lm.getNr() == legemiddelNummer) {
 				return lm;
