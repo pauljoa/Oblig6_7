@@ -40,7 +40,7 @@ public class PersonParser {
 				p = new Person(unikid, navn, fodselsnummer, adresse, postnummer);
 			}
 
-			tabell.put(p.getUnik(), p);
+			tabell.add(p.getUnik(), p);
 			return p;
 		}
 

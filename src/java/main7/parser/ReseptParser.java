@@ -7,6 +7,7 @@ import no.uio.inf1010.oblig6.collections.YngsteForstReseptListe;
 import no.uio.inf1010.oblig6.lege.Lege;
 import no.uio.inf1010.oblig6.legemiddel.Legemiddel;
 import no.uio.inf1010.oblig6.resept.Resept;
+import no.uio.inf1010.oblig6.resept.ReseptBlaa;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,16 +52,19 @@ public class ReseptParser {
 			Legemiddel legemiddel = matchLegemiddel(legemiddelNummer);
 
 			if (lege != null && legemiddel != null) {
-				Resept resept;
-
 				if (nr != -1) {
-					resept = new Resept(nr, persNummer, reit, lege, legemiddel);
+					if (type.equals("hvit")) {
+						return new Resept(nr, persNummer, reit, lege, legemiddel);
+					} else if (type.equals("blå")) {
+						return new ReseptBlaa(nr, persNummer, reit, lege, legemiddel);
+					}
 				} else {
-					resept = new Resept(persNummer, reit, lege, legemiddel);
-
+					if (type.equals("hvit")) {
+						return new Resept(persNummer, reit, lege, legemiddel);
+					} else if (type.equals("blå")) {
+						return new ReseptBlaa(persNummer, reit, lege, legemiddel);
+					}
 				}
-
-				return resept;
 			}
 		}
 
@@ -78,11 +82,17 @@ public class ReseptParser {
 	}
 
 	private Legemiddel matchLegemiddel(int legemiddelNummer) {
+		int count = 0;
+
 		for (Legemiddel lm : legemiddelTabell) {
+			count++;
+			System.out.println(lm + "\t\t" + legemiddelNummer);
 			if (lm.getNr() == legemiddelNummer) {
 				return lm;
 			}
 		}
+
+		System.out.println("iterasjoner = " + count);
 
 		return null;
 	}

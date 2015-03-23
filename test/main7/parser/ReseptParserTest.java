@@ -40,7 +40,7 @@ public class ReseptParserTest {
 		fastlege = new Fastlege("Dr. Hus", 43020);
 
 		predizol = new AM(0, "Perdizol", 50, 12, 5, 19);
-		ferdizol = new BP(2, "Ferdizol", 200, 18, 10, 15);
+		ferdizol = new BP(1, "Ferdizol", 200, 18, 10, 15);
 
 		yngsteForstReseptListe = new YngsteForstReseptListe();
 		eldsteForstReseptListe = new EldsteForstReseptListe();
@@ -52,8 +52,8 @@ public class ReseptParserTest {
 		legeListe.push(lege);
 		legeListe.push(fastlege);
 
-		legemiddelTabell.put(0, predizol);
-		legemiddelTabell.put(2, ferdizol);
+		legemiddelTabell.add(0, predizol);
+		legemiddelTabell.add(2, ferdizol);
 	}
 
 	@After

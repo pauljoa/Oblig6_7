@@ -9,6 +9,10 @@ public class ReseptBlaa extends Resept {
         super(personnr, reit, lege, legemiddel);
     }
 
+	public ReseptBlaa(int nr, int personnr, int reit, Lege lege, Legemiddel legemiddel) {
+		super(nr, personnr, reit, lege, legemiddel);
+	}
+
     @Override
     public String toString() {
         return "ReseptBlaa{} " + super.toString();

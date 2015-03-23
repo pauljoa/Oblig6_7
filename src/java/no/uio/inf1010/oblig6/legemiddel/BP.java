@@ -35,12 +35,12 @@ public class BP extends Legemiddel implements Piller {
         return vane;
     }
 
-    @Override
-    public String toString() {
-        return "BP{" +
-                "vane=" + vane +
-                ", volum=" + antall +
-                ", perEnhet=" + perEnhet +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "BP{" +
+			"vane=" + vane +
+			", antall=" + antall +
+			", perEnhet=" + perEnhet +
+			"} " + super.toString();
+	}
 }

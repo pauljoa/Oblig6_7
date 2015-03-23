@@ -48,59 +48,59 @@ public class LegemiddelParser {
 				if (form.equals("mikstur")) {
 					if (type.equals("a")) {
 						Legemiddel legemiddel = new AM(navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
 						Legemiddel legemiddel = new BM(navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
 						Legemiddel legemiddel = new CM(navn, pris, antall, virkestoff);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}
 				} else if (form.equals("pille")) {
 					if (type.equals("a")) {
 						Legemiddel legemiddel = new AP(navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
 						Legemiddel legemiddel = new BP(navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
 						Legemiddel legemiddel = new CP(navn, pris, antall, virkestoff);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}
 				}
 			} else {
-				if (form.equals("mikstur")) {
+				if (form.equalsIgnoreCase("mikstur")) {
 					if (type.equals("a")) {
 						Legemiddel legemiddel = new AM(nr, navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
 						Legemiddel legemiddel = new BM(nr, navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
 						Legemiddel legemiddel = new CM(nr, navn, pris, antall, virkestoff);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}
-				} else if (form.equals("pille")) {
+				} else if (form.equalsIgnoreCase("pille")) {
 					if (type.equals("a")) {
 						Legemiddel legemiddel = new AP(nr, navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
 						Legemiddel legemiddel = new BP(nr, navn, pris, antall, virkestoff, styrke);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
 						Legemiddel legemiddel = new CP(nr, navn, pris, antall, virkestoff);
-						tabell.put(legemiddel.getNr(), legemiddel);
+						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}
 				}
