@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LegemiddelParser {
-	private final String regexp = "((?<UNIKID>\\d+)|(?<cmd>legemiddel))(?:,\\s*|\\s*)(?<navn>[^,]+),\\s*(?<form>(mikstur|pille)),\\s*(?<type>(a|b|c)),\\s*(?<pris>\\d+),\\s*(?<antall>\\d+),\\s*(?<virkestoff>\\d+)(,\\s*(?<styrke>\\d+))?";
+	private static final String regexp = "((?<UNIKID>\\d+)|(?<cmd>legemiddel))(?:,\\s*|\\s*)(?<navn>[^,]+),\\s*(?<form>(mikstur|pille)),\\s*(?<type>(a|b|c)),\\s*(?<pris>\\d+),\\s*(?<antall>\\d+),\\s*(?<virkestoff>\\d+)(,\\s*(?<styrke>\\d+))?";
 
 	private Pattern pattern;
 	private Tabell<Legemiddel> tabell;
@@ -18,80 +18,95 @@ public class LegemiddelParser {
 	}
 
 
-	public void parse(String line) {
+	public Legemiddel parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 
 		if (matcher.matches()) {
 			int nr = -1;
 
-			if (!matcher.group("nr").isEmpty()) {
-				nr = Integer.parseInt(matcher.group("nr"));
+			if (matcher.group("UNIKID") != null) {
+				nr = Integer.parseInt(matcher.group("UNIKID"));
 			}
 
 			String navn = matcher.group("navn");
 			String form = matcher.group("form");
 			String type = matcher.group("type");
 			int pris = Integer.parseInt(matcher.group("pris"));
+
+			//TODO antall er også double, håndtere dette!
 			int antall = Integer.parseInt(matcher.group("antall"));
+
 			int virkestoff = Integer.parseInt(matcher.group("virkestoff"));
 
 			int styrke = -1;
 
-			if (!matcher.group("styrke").isEmpty()) {
+			if (matcher.group("styrke") != null) {
 				styrke = Integer.parseInt(matcher.group("styrke"));
 			}
 
 			if (nr < 0) {
 				if (form.equals("mikstur")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AM(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new AM(navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BM(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new BM(navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CM(navn, virkestoff, pris, antall);
+						Legemiddel legemiddel = new CM(navn, pris, antall, virkestoff);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					}
 				} else if (form.equals("pille")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AP(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new AP(navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BP(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new BP(navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CP(navn, virkestoff, pris, antall);
+						Legemiddel legemiddel = new CP(navn, pris, antall, virkestoff);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					}
 				}
 			} else {
 				if (form.equals("mikstur")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AM(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new AM(nr, navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BM(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new BM(nr, navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CM(navn, virkestoff, pris, antall);
+						Legemiddel legemiddel = new CM(nr, navn, pris, antall, virkestoff);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					}
 				} else if (form.equals("pille")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AP(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new AP(nr, navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BP(navn, virkestoff, pris, antall, styrke);
+						Legemiddel legemiddel = new BP(nr, navn, pris, antall, virkestoff, styrke);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CP(navn, virkestoff, pris, antall);
+						Legemiddel legemiddel = new CP(nr, navn, pris, antall, virkestoff);
 						tabell.put(legemiddel.getNr(), legemiddel);
+						return legemiddel;
 					}
 				}
 			}
-		} else {
-			throw new IllegalStateException("feil med inlest linje:\n" + line);
 		}
+
+		throw new IllegalStateException("feil med inlest linje:\n" + line);
 	}
 }

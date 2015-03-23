@@ -39,13 +39,17 @@ public class Tabell<E> implements AbstraktTabell<E> {
 		tabell.clear();
 	}
 
-    private class TabellIterator implements Iterator<E> {
+	public int size() {
+		return tabell.size();
+	}
+
+	private class TabellIterator implements Iterator<E> {
         private int index;
         private ArrayList<E> list;
 
         TabellIterator(ArrayList<E> list) {
             this.list = list;
-            this.index = 0;
+            this.index = -1;
         }
 
         private E getNext(int i) {

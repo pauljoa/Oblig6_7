@@ -35,4 +35,10 @@ public abstract class EnkelReseptListe implements Iterable<Resept> {
     public int size() {
         return length;
     }
+
+	public void clear() {
+		head = null;
+		tail = null;
+		length = 0;
+	}
 }

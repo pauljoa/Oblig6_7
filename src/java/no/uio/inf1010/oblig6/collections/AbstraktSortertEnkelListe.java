@@ -7,4 +7,6 @@ public interface AbstraktSortertEnkelListe<E extends Comparable<E> & Lik> extend
     public boolean push(E element);
 
     public E get(String s);
+
+	public void clear();
 }

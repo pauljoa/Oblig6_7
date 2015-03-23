@@ -1,6 +1,8 @@
 package no.uio.inf1010.oblig6.collections;
 
 import no.uio.inf1010.oblig6.Lik;
+import no.uio.inf1010.oblig6.lege.Fastlege;
+import no.uio.inf1010.oblig6.lege.Lege;
 
 import java.util.Iterator;
 
@@ -64,7 +66,14 @@ public class SortertEnkelListe<E extends Comparable<E> & Lik> implements Abstrak
         return null;
     }
 
-    @Override
+	@Override
+	public void clear() {
+		head = null;
+		tail = null;
+		length = 0;
+	}
+
+	@Override
     public Iterator<E> iterator() {
         return new Riterator<>(head);
     }

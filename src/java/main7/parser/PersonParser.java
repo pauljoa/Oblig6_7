@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PersonParser {
-	private final String regexp = "((?<UNIKID>\\d+)|(?<cmd>nyperson))(?:,\\s*|\\s*)(?<Navn>[^,]+),\\s*(?<Fodselsnummer>\\d{11}),\\s*(?<Adresse>[^,]+),\\s*(?<Postnummer>\\d{4})";
+	private final static String regexp = "((?<UNIKID>\\d+)|(?<cmd>nyperson))(?:,\\s*|\\s*)(?<Navn>[^,]+),\\s*(?<Fodselsnummer>\\d{11}),\\s*(?<Adresse>[^,]+),\\s*(?<Postnummer>\\d{4})";
 
 	private Pattern pattern;
 	private Tabell<Person> tabell;

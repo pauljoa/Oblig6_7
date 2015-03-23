@@ -22,7 +22,20 @@ public class Resept {
         unikTeller++;
     }
 
-    public int getNr() {
+	public Resept(int nr, int personnr, int reit, Lege lege, Legemiddel legemiddel) {
+		unikNr = nr;
+		this.personnr = personnr;
+		this.reit = reit;
+		this.lege = lege;
+		this.legemiddel = legemiddel;
+
+		if (nr > unikTeller) {
+			unikTeller = nr;
+		}
+		unikTeller++;
+	}
+
+	public int getNr() {
         return unikNr;
     }
 
