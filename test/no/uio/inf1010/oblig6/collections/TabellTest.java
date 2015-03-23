@@ -22,8 +22,8 @@ public class TabellTest {
 
 	@Test
 	public void testIterator() throws Exception {
-		tabell.put(0, "hei");
-		tabell.put(1, "nei");
+		tabell.add(0, "hei");
+		tabell.add(1, "nei");
 
 		assertEquals(2, tabell.size());
 
