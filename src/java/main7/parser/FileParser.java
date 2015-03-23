@@ -54,7 +54,7 @@ public class FileParser {
 				} else if (mode == Modes.LEGER) {
 					legeParser.parse(line);
 				} else if (mode == Modes.RESEPTER) {
-
+					reseptParser.parse(line);
 				}
 			}
 		}

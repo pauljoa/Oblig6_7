@@ -82,17 +82,11 @@ public class ReseptParser {
 	}
 
 	private Legemiddel matchLegemiddel(int legemiddelNummer) {
-		int count = 0;
-
 		for (Legemiddel lm : legemiddelTabell) {
-			count++;
-			System.out.println(lm + "\t\t" + legemiddelNummer);
 			if (lm.getNr() == legemiddelNummer) {
 				return lm;
 			}
 		}
-
-		System.out.println("iterasjoner = " + count);
 
 		return null;
 	}

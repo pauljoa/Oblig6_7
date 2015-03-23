@@ -5,14 +5,6 @@ public class BP extends Legemiddel implements Piller {
     protected int antall;
     protected double perEnhet;
 
-	public BP(String navn, int pris, int antall, double virkestoff, int vane) {
-        super(navn, pris, virkestoff);
-		this.antall = antall;
-		this.vane = vane;
-
-        perEnhet = virkestoff / this.antall;
-    }
-
 	public BP(int nr, String navn, int pris, int antall, double virkestoff, int vane) {
 		super(nr, navn, pris, virkestoff);
 		this.antall = antall;

@@ -31,11 +31,6 @@ public class LegemiddelParserTest {
 		parser = new LegemiddelParser(tabell);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		Legemiddel.resetTeller();
-	}
-
 	@Test
 	public void testParseFile() throws Exception {
 		AM am = (AM) parser.parse(fileLineAM);

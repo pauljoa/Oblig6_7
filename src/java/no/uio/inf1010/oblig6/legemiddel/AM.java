@@ -5,14 +5,6 @@ public class AM extends Legemiddel implements Mikstur {
     protected double perCm3;
     protected int narkotisk;
 
-	public AM(String navn, int pris, double volum, double virkestoff, int styrke) {
-        super(navn, pris, virkestoff);
-        this.volum = volum;
-        this.narkotisk = styrke;
-
-        perCm3 = virkestoff / volum;
-    }
-
 	public AM(int nr, String navn, int pris, double volum, double virkestoff, int styrke) {
 		super(nr, navn, pris, virkestoff);
 		this.volum = volum;

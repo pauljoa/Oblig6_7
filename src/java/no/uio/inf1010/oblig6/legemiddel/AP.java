@@ -5,14 +5,6 @@ public class AP extends Legemiddel implements Piller {
     protected int mengde;
     protected double perEnhet;
 
-    public AP(String navn, int pris, int mengde, double virkestoff, int styrke) {
-        super(navn, pris, virkestoff);
-        this.styrke = styrke;
-        this.mengde = mengde;
-
-        perEnhet = virkestoff / this.mengde;
-    }
-
 	public AP(int nr, String navn, int pris, int mengde, double virkestoff, int styrke) {
 		super(nr, navn, pris, virkestoff);
 		this.styrke = styrke;

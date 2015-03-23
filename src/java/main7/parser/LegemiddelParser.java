@@ -45,31 +45,33 @@ public class LegemiddelParser {
 			}
 
 			if (nr < 0) {
+				int index = tabell.size() + 1;
+
 				if (form.equals("mikstur")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AM(navn, pris, antall, virkestoff, styrke);
+						Legemiddel legemiddel = new AM(index, navn, pris, antall, virkestoff, styrke);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BM(navn, pris, antall, virkestoff, styrke);
+						Legemiddel legemiddel = new BM(index, navn, pris, antall, virkestoff, styrke);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CM(navn, pris, antall, virkestoff);
+						Legemiddel legemiddel = new CM(index, navn, pris, antall, virkestoff);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}
 				} else if (form.equals("pille")) {
 					if (type.equals("a")) {
-						Legemiddel legemiddel = new AP(navn, pris, antall, virkestoff, styrke);
+						Legemiddel legemiddel = new AP(index, navn, pris, antall, virkestoff, styrke);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("b")) {
-						Legemiddel legemiddel = new BP(navn, pris, antall, virkestoff, styrke);
+						Legemiddel legemiddel = new BP(index, navn, pris, antall, virkestoff, styrke);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					} else if (type.equals("c")) {
-						Legemiddel legemiddel = new CP(navn, pris, antall, virkestoff);
+						Legemiddel legemiddel = new CP(index, navn, pris, antall, virkestoff);
 						tabell.add(legemiddel.getNr(), legemiddel);
 						return legemiddel;
 					}

@@ -28,9 +28,9 @@ public class YngsteForstReseptListeTest {
     @Before
     public void setUp() throws Exception {
         lege = new Lege("bert");
-        legemiddel1 = new AM("americanum", 1, 1, 1, 1);
-        legemiddel2 = new BP("bortrorium", 2, 2, 2, 2);
-        legemiddel3 = new CP("centrolium", 3, 3, 3);
+        legemiddel1 = new AM(0, "americanum", 1, 1, 1, 1);
+        legemiddel2 = new BP(1, "bortrorium", 2, 2, 2, 2);
+        legemiddel3 = new CP(2, "centrolium", 3, 3, 3);
         resept1 = new Resept(1, 1, lege, legemiddel1);
         resept2 = new Resept(2, 2, lege, legemiddel2);
         resept3 = new Resept(3, 3, lege, legemiddel3);
