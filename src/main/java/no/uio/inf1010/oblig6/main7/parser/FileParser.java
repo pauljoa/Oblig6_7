@@ -1,6 +1,6 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
-import main7.Table;
+import no.uio.inf1010.oblig6.main7.Table;
 
 import java.io.*;
 import java.util.Scanner;

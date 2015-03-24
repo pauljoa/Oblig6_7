@@ -1,12 +1,10 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
-import no.uio.inf1010.oblig6.Person;
 import no.uio.inf1010.oblig6.collections.Tabell;
 import no.uio.inf1010.oblig6.legemiddel.AM;
 import no.uio.inf1010.oblig6.legemiddel.BP;
 import no.uio.inf1010.oblig6.legemiddel.CP;
 import no.uio.inf1010.oblig6.legemiddel.Legemiddel;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,7 +57,6 @@ public class LegemiddelParserTest {
 		assertNotNull(bp);
 		assertNotNull(cp);
 
-		assertEquals(0, am.getNr());
 		assertEquals("Predizol", am.getNavn());
 		assertEquals(450, am.getPris());
 		assertEquals(50, am.volum(), 0.001);

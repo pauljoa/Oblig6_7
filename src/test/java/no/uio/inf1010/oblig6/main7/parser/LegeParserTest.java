@@ -1,8 +1,6 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
-import no.uio.inf1010.oblig6.Person;
 import no.uio.inf1010.oblig6.collections.SortertEnkelListe;
-import no.uio.inf1010.oblig6.collections.Tabell;
 import no.uio.inf1010.oblig6.lege.Fastlege;
 import no.uio.inf1010.oblig6.lege.Lege;
 import org.junit.After;

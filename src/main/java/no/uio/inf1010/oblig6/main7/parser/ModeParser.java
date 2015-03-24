@@ -1,4 +1,4 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

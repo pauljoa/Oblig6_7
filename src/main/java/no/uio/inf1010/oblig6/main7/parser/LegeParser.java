@@ -1,4 +1,4 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
 import no.uio.inf1010.oblig6.collections.SortertEnkelListe;
 import no.uio.inf1010.oblig6.lege.Fastlege;

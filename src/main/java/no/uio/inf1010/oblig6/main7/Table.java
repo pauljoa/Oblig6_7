@@ -1,4 +1,4 @@
-package main7;
+package no.uio.inf1010.oblig6.main7;
 
 import no.uio.inf1010.oblig6.Person;
 import no.uio.inf1010.oblig6.collections.*;

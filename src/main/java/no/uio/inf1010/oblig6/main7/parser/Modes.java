@@ -1,4 +1,4 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
 public enum Modes {
 	PERSONER("Personer"),

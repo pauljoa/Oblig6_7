@@ -1,7 +1,7 @@
-package main7;
+package no.uio.inf1010.oblig6;
 
-import main7.parser.*;
-import no.uio.inf1010.oblig6.Person;
+import no.uio.inf1010.oblig6.main7.Table;
+import no.uio.inf1010.oblig6.main7.parser.*;
 import no.uio.inf1010.oblig6.lege.Fastlege;
 import no.uio.inf1010.oblig6.lege.Lege;
 import no.uio.inf1010.oblig6.legemiddel.*;
@@ -11,11 +11,11 @@ import no.uio.inf1010.oblig6.resept.ReseptBlaa;
 import java.io.*;
 import java.util.*;
 
-public class Main7 {
+public class Oblig {
 	private Table table = new Table();
 
-	public Main7(File file) throws FileNotFoundException {
-		if (file.exists()) {
+	public Oblig(File file) throws FileNotFoundException {
+		if (file != null && file.exists()) {
 			parseFile(file);
 			System.out.println("Data lastet fra: " + file.getName());
 		}
@@ -24,8 +24,12 @@ public class Main7 {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		File file = new File(args[0]);
-		new Main7(file);
+		if (args.length > 0) {
+			File file = new File(args[0]);
+			new Oblig(file);
+		} else {
+			new Oblig(null);
+		}
 	}
 
 	private static void usage() {

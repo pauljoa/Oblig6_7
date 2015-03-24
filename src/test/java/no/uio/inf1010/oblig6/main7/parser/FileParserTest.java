@@ -1,13 +1,10 @@
-package main7.parser;
+package no.uio.inf1010.oblig6.main7.parser;
 
-import main7.Table;
-import org.junit.After;
+import no.uio.inf1010.oblig6.main7.Table;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
-
-import static org.junit.Assert.*;
 
 public class FileParserTest {
 
