@@ -6,7 +6,7 @@ import no.uio.inf1010.oblig6.collections.Tabell;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PersonParser {
+public class PersonParser implements Parser<Person> {
 	private final static String regexp = "((?<UNIKID>\\d+)|(?<cmd>nyperson))(?:,\\s*|\\s*)(?<Navn>[^,]+),\\s*(?<Fodselsnummer>\\d{11}),\\s*(?<Adresse>[^,]+),\\s*(?<Postnummer>\\d{4})";
 
 	private Pattern pattern;
@@ -17,7 +17,7 @@ public class PersonParser {
 		this.tabell = tabell;
 	}
 
-
+	@Override
 	public Person parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 

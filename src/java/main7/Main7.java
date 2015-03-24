@@ -1,7 +1,8 @@
 package main7;
 
-import main7.parser.FileParser;
+import main7.parser.*;
 import no.uio.inf1010.oblig6.Person;
+import no.uio.inf1010.oblig6.lege.Fastlege;
 import no.uio.inf1010.oblig6.lege.Lege;
 import no.uio.inf1010.oblig6.legemiddel.Legemiddel;
 import no.uio.inf1010.oblig6.resept.Resept;
@@ -18,6 +19,11 @@ public class Main7 {
 	}
 
 	public Main7(File file) throws FileNotFoundException {
+		if (file.exists()) {
+			parseFile(file);
+			System.out.println("Data lastet fra: " + file.getName());
+		}
+
 		meny();
 	}
 
@@ -25,8 +31,6 @@ public class Main7 {
 		Scanner scanner = new Scanner(System.in);
 
 		printMenyUsage();
-
-
 
 		boolean loop = true;
 		while (loop) {
@@ -70,19 +74,55 @@ public class Main7 {
 	}
 
 	private void parseNyResept(String line) {
+		ReseptParser parser = new ReseptParser(table.yngsteForstReseptListe, table.eldsteForstReseptListe, table.sortertLegeListe, table.legemiddelTabell);
+		Resept resept = parser.parse(line);
 
+		if (resept != null) {
+			System.out.println("Resept lagt til");
+			System.out.println(resept);
+		} else {
+			System.out.println("Feil under evaluering av nyresept");
+		}
 	}
 
 	private void parseNyPerson(String line) {
+		PersonParser parser = new PersonParser(table.personTabell);
+		Person person = parser.parse(line);
 
+		if (person != null) {
+			System.out.println("Person lagt til");
+			System.out.println(person);
+		} else {
+			System.out.println("Feil under evaluering av nyperson");
+		}
 	}
 
 	private void parseNyLege(String line) {
+		LegeParser parser = new LegeParser(table.sortertLegeListe);
+		Lege lege = parser.parse(line);
 
+		if (lege != null) {
+			if (lege instanceof Fastlege) {
+				System.out.println("Fastlege lagt til");
+			} else {
+				System.out.println("Lege lagt til");
+			}
+			System.out.println(lege);
+		} else {
+			System.out.println("Feil under evaluering av nylege");
+		}
 	}
 
 	private void parseLegemiddel(String line) {
+		LegemiddelParser parser = new LegemiddelParser(table.legemiddelTabell);
+		Legemiddel legemiddel = parser.parse(line);
 
+		if (legemiddel != null) {
+			System.out.println("Legemiddel lagt til");
+			System.out.println(legemiddel);
+		} else {
+			System.out.println("Feil under evaluering av legemiddel");
+		}
 	}
 
 	private void parseDump(String line) {
@@ -126,12 +166,14 @@ public class Main7 {
 		File file = new File(splits[1]);
 		FileOutputStream stream = new FileOutputStream(file);
 		dumpData(new PrintStream(stream));
+		System.out.println("Data dumpet til: " + file.getName());
 	}
 
 	private void parseLade(String line) throws FileNotFoundException {
 		String[] splits = line.split("\\s");
 		File file = new File(splits[1]);
 		parseFile(file);
+		System.out.println("Data lastet fra: " + file.getName());
 	}
 
 	private String getInput(Scanner scanner) {
@@ -146,8 +188,8 @@ public class Main7 {
 		System.out.println("skrive - skrive til fil");
 		System.out.println("dump - dumpe data til skjerm");
 		System.out.println("legemiddel - legemiddel param param");
-		System.out.println("nylege - nylege param param");
-		System.out.println("nyperson - nyperson param param");
+		System.out.println("nylege - nylege <navn>, <avtalenr / 0 hvis ingen avtale>");
+		System.out.println("nyperson - nyperson <nr>, <navn>, <fnr>, <adresse>, <postnr>");
 		System.out.println("nyresept - nyresept param param");
 		System.out.println("hentresept - hentresept param param");
 		System.out.println("stats - stats param param");

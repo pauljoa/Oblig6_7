@@ -1,7 +1,5 @@
 package main7.parser;
 
-import java.util.Iterator;
-
 public enum Modes {
 	PERSONER("Personer"),
 	LEGEMIDLER("Legemidler"),

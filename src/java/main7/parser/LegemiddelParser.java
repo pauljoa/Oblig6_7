@@ -6,7 +6,7 @@ import no.uio.inf1010.oblig6.legemiddel.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LegemiddelParser {
+public class LegemiddelParser implements Parser<Legemiddel> {
 	private static final String regexp = "((?<UNIKID>\\d+)|(?<cmd>legemiddel))(?:,\\s*|\\s*)(?<navn>[^,]+),\\s*(?<form>(mikstur|pille)),\\s*(?<type>(a|b|c)),\\s*(?<pris>\\d+),\\s*(?<antall>\\d+),\\s*(?<virkestoff>\\d+)(,\\s*(?<styrke>\\d+))?";
 
 	private Pattern pattern;
@@ -17,7 +17,7 @@ public class LegemiddelParser {
 		this.tabell = tabell;
 	}
 
-
+	@Override
 	public Legemiddel parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 

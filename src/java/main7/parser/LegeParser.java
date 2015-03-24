@@ -7,7 +7,7 @@ import no.uio.inf1010.oblig6.lege.Lege;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LegeParser {
+public class LegeParser implements Parser<Lege> {
 	//TODO make eregexp conditional in constructor depending on file or cmd mode
 	private static final String regexp = "^(?<cmd>nylege)?\\s*(?<navn>[^,]+),\\s*(?<avtalenr>\\d+)";
 
@@ -19,6 +19,7 @@ public class LegeParser {
 		this.liste = liste;
 	}
 
+	@Override
 	public Lege parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 

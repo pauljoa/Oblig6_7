@@ -3,7 +3,7 @@ package main7.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ModeParser {
+public class ModeParser implements Parser<Modes> {
 	private final String regexp;
 
 	private Pattern pattern;
@@ -30,6 +30,7 @@ public class ModeParser {
 		return sb.toString();
 	}
 
+	@Override
 	public Modes parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 		matcher.find();

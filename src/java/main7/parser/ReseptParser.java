@@ -12,7 +12,7 @@ import no.uio.inf1010.oblig6.resept.ReseptBlaa;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ReseptParser {
+public class ReseptParser implements Parser<Resept> {
 	private static final String regexp = "^(?<cmd>nyresept)?\\s*(?<nr>\\d+)?,?\\s*(?<type>hvit|blå),\\s*(?<persNummer>\\d+),\\s*(?<legenavn>\\w[^,]*),\\s*(?<legemiddelNummer>\\d+),\\s*(?<reit>\\d+)";
 
 	private final YngsteForstReseptListe yngsteForstReseptListe;
@@ -31,6 +31,7 @@ public class ReseptParser {
 		pattern = Pattern.compile(regexp);
 	}
 
+	@Override
 	public Resept parse(String line) {
 		Matcher matcher = pattern.matcher(line);
 
