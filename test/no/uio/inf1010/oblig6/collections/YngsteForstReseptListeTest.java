@@ -25,6 +25,8 @@ public class YngsteForstReseptListeTest {
 
     private YngsteForstReseptListe liste;
 
+	// FIFO
+
     @Before
     public void setUp() throws Exception {
         lege = new Lege("bert");
@@ -39,13 +41,6 @@ public class YngsteForstReseptListeTest {
         liste.push(resept1);
         liste.push(resept2);
         liste.push(resept3);
-    }
-
-    @Test
-    public void testUniqueNumbering() throws Exception {
-        assertEquals(0, resept1.getNr());
-        assertEquals(1, resept2.getNr());
-        assertEquals(2, resept3.getNr());
     }
 
     @Test

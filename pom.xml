@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>no.uio.steffeni</groupId>
-    <artifactId>no.uio.inf1010.v2015.oblig6</artifactId>
+    <artifactId>no.uio.inf1010.v2015.oblig7</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <project.mainClass>Oblig6</project.mainClass>
+        <project.mainClass>main7/Main7</project.mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>

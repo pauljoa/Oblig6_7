@@ -25,6 +25,8 @@ public class EldsteForstReseptListeTest {
 
     private EldsteForstReseptListe liste;
 
+	// LIFO
+
     @Before
     public void setUp() throws Exception {
         lege = new Lege("bert");
